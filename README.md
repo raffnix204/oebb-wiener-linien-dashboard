@@ -2,7 +2,7 @@
 
 Ein modernes Dashboard zur Anzeige von Live-Verbindungen für ÖBB und Wiener Linien.
 
-<img width="1503" height="1216" alt="oebb-dashboard" src="https://github.com/user-attachments/assets/40a6b91b-36b1-40a8-a3c6-a0ef6448e119" />
+<img width="1500" height="1222" alt="oebb-dashboard" src="https://github.com/user-attachments/assets/d22986f4-330f-41a8-be8c-2a8111ea3a07" />
 
 ## Features
 
