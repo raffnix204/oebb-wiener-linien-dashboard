@@ -145,6 +145,19 @@ app.get('/api/stations', async (req, res) => {
     }
 });
 
+// API Endpunkt für Verkehrsmeldungen (RSS Feed Proxy)
+app.get('/api/traffic-alerts', async (req, res) => {
+    try {
+        const response = await fetch('https://origamihase.github.io/wien-oepnv/feed.xml');
+        const xmlText = await response.text();
+        res.set('Content-Type', 'application/xml');
+        res.send(xmlText);
+    } catch (error) {
+        console.error('Fehler beim Laden der Verkehrsmeldungen:', error);
+        res.status(500).json({ error: error.message });
+    }
+});
+
 // Hilfs-Funktion zur Bestimmung des Verkehrsmitteltyps
 function getTransportType(line) {
     const product = line.product || line.mode;

@@ -537,9 +537,60 @@ setInterval(() => {
     }
 }, 120000);
 
+// Verkehrsmeldungen laden
+async function loadTrafficAlerts() {
+    try {
+        const response = await fetch(`${API_URL}/traffic-alerts`);
+        const xmlText = await response.text();
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+
+        const items = xmlDoc.querySelectorAll('item');
+        const alerts = Array.from(items).slice(0, 5).map(item => ({
+            title: item.querySelector('title')?.textContent || '',
+            description: item.querySelector('description')?.textContent || '',
+            pubDate: item.querySelector('pubDate')?.textContent || '',
+            link: item.querySelector('link')?.textContent || ''
+        }));
+
+        renderTrafficAlerts(alerts);
+    } catch (error) {
+        console.error('Fehler beim Laden der Verkehrsmeldungen:', error);
+    }
+}
+
+// Verkehrsmeldungen anzeigen
+function renderTrafficAlerts(alerts) {
+    const container = document.getElementById('trafficAlerts');
+
+    if (!alerts || alerts.length === 0) {
+        container.style.display = 'none';
+        return;
+    }
+
+    container.innerHTML = `
+        <div class="alerts-header">
+            <h3>🚨 Aktuelle Verkehrsmeldungen</h3>
+            <small>Quelle: <a href="https://github.com/Origamihase/wien-oepnv" target="_blank">Origamihase/wien-oepnv</a></small>
+        </div>
+        <div class="alerts-list">
+            ${alerts.map(alert => `
+                <div class="alert-item">
+                    <div class="alert-title">${alert.title}</div>
+                    <div class="alert-description">${alert.description}</div>
+                </div>
+            `).join('')}
+        </div>
+    `;
+}
+
 // Event Listeners
 document.addEventListener('DOMContentLoaded', () => {
     loadConnections();
+    loadTrafficAlerts();
+
+    // Verkehrsmeldungen alle 5 Minuten aktualisieren
+    setInterval(loadTrafficAlerts, 5 * 60 * 1000);
 
     // Enter-Taste zum Hinzufügen
     const inputs = ['fromStation', 'toStation'];

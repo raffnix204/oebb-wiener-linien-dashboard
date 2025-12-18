@@ -102,6 +102,10 @@ Das Dashboard ist dann erreichbar unter: http://localhost:3007
 - Standard-Port: **3007**
 - Ändern in `docker-compose.yml` unter `ports: - "3007:3000"`
 
+## Credits
+
+**Verkehrsmeldungen:** Die Echtzeitstörungen für Wien werden bereitgestellt von [Origamihase/wien-oepnv](https://github.com/Origamihase/wien-oepnv) - ein RSS-Feed mit aktuellen Störungsmeldungen für den Wiener Öffentlichen Verkehr.
+
 ## Hinweis
 
 Dies ist ein inoffizielles Tool und nutzt die öffentliche ÖBB HAFAS API.
