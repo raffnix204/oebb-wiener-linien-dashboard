@@ -37,35 +37,37 @@ h1 {
 
 /* Verkehrsmeldungen */
 .traffic-alerts {
-    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
-    color: white;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
-    margin-bottom: 30px;
+    background: white;
+    padding: 15px 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    border-left: 4px solid #ff6b6b;
 }
 
 .alerts-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e0e0e0;
 }
 
 .alerts-header h3 {
-    color: white;
-    font-size: 18px;
+    color: #333;
+    font-size: 14px;
     margin: 0;
+    font-weight: 600;
 }
 
 .alerts-header small {
-    color: rgba(255, 255, 255, 0.9);
+    color: #666;
+    font-size: 11px;
 }
 
 .alerts-header small a {
-    color: white;
+    color: #667eea;
     text-decoration: none;
     font-weight: 600;
 }
@@ -76,26 +78,39 @@ h1 {
 
 .alerts-list {
     display: grid;
-    gap: 12px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+@media (max-width: 1024px) {
+    .alerts-list {
+        grid-template-columns: 1fr;
+    }
 }
 
 .alert-item {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    padding: 12px 15px;
-    border-radius: 8px;
-    border-left: 4px solid white;
+    background: #f8f9fa;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border-left: 3px solid #ff6b6b;
+    transition: all 0.2s;
+}
+
+.alert-item:hover {
+    background: #f0f1f3;
+    transform: translateX(2px);
 }
 
 .alert-title {
-    font-weight: 700;
-    font-size: 14px;
-    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 12px;
+    margin-bottom: 4px;
+    color: #333;
 }
 
 .alert-description {
-    font-size: 13px;
-    opacity: 0.95;
+    font-size: 11px;
+    color: #666;
     line-height: 1.4;
 }
 
