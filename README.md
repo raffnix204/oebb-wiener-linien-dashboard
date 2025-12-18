@@ -2,6 +2,10 @@
 
 Ein modernes Dashboard zur Anzeige von Live-Verbindungen für ÖBB und Wiener Linien.
 
+
+<img width="1467" height="1097" alt="oebb-dashboard" src="https://github.com/user-attachments/assets/b44658ec-ff85-465e-9d9b-97550078251d" />
+
+
 ## Features
 
 - 🚆 Live-Verbindungen von ÖBB
@@ -30,7 +34,7 @@ docker compose up -d
 
 3. Dashboard öffnen:
 ```
-http://localhost:3000
+http://localhost:3007
 ```
 
 ### Docker Befehle
@@ -55,8 +59,8 @@ docker compose ps
 ## Verwendung
 
 1. **Verbindung hinzufügen:**
-   - Startstation eingeben (z.B. "Tullnerfeld")
-   - Zielstation eingeben (z.B. "Wien Westbahnhof")
+   - Startstation eingeben (z.B. "Wien Hbf")
+   - Zielstation eingeben (z.B. "Salzburg Hbf")
    - "Verbindung hinzufügen" klicken
 
 2. **Verbindungen verwalten:**
@@ -84,7 +88,7 @@ npm install
 npm start
 ```
 
-Das Dashboard ist dann erreichbar unter: http://localhost:3000
+Das Dashboard ist dann erreichbar unter: http://localhost:3007
 
 ## Technologie
 
@@ -95,8 +99,8 @@ Das Dashboard ist dann erreichbar unter: http://localhost:3000
 
 ## Port
 
-- Standard-Port: **3000**
-- Ändern in `docker-compose.yml` unter `ports: - "3000:3000"`
+- Standard-Port: **3007**
+- Ändern in `docker-compose.yml` unter `ports: - "3007:3000"`
 
 ## Hinweis
 
