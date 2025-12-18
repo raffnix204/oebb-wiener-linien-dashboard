@@ -1,8 +1,13 @@
-const express = require('express');
-const cors = require('cors');
-const { createClient } = require('hafas-client');
-const { profile: oebbProfile } = require('hafas-client/p/oebb');
-const path = require('path');
+import express from 'express';
+import cors from 'cors';
+import { createClient } from 'hafas-client';
+import { profile as oebbProfile } from 'hafas-client/p/oebb/index.js';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const app = express();
 const PORT = 3000;
