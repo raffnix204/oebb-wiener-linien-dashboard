@@ -1,0 +1,103 @@
+# ÖBB & Wiener Linien Dashboard
+
+Ein modernes Dashboard zur Anzeige von Live-Verbindungen für ÖBB und Wiener Linien.
+
+## Features
+
+- 🚆 Live-Verbindungen von ÖBB
+- 🚇 Integration von Wiener Linien (U-Bahn, Straßenbahn, Bus)
+- 🔄 Automatische Aktualisierung alle 2 Minuten
+- 📍 Intelligente Stationssuche mit Autocomplete
+- ⏱️ Echtzeit-Verspätungsanzeige
+- 🎯 Drag & Drop zum Neuordnen der Verbindungen
+- 💾 Speicherung der Verbindungen im Browser (LocalStorage)
+
+## Schnellstart mit Docker Compose
+
+### Voraussetzungen
+
+- Docker
+- Docker Compose
+
+### Installation und Start
+
+1. Repository klonen oder Dateien herunterladen
+
+2. Im Projektverzeichnis ausführen:
+```bash
+docker compose up -d
+```
+
+3. Dashboard öffnen:
+```
+http://localhost:3000
+```
+
+### Docker Befehle
+
+```bash
+# Dashboard starten
+docker compose up -d
+
+# Logs anzeigen
+docker compose logs -f
+
+# Dashboard stoppen
+docker compose down
+
+# Dashboard neu bauen (nach Code-Änderungen)
+docker compose up -d --build
+
+# Status prüfen
+docker compose ps
+```
+
+## Verwendung
+
+1. **Verbindung hinzufügen:**
+   - Startstation eingeben (z.B. "Tullnerfeld")
+   - Zielstation eingeben (z.B. "Wien Westbahnhof")
+   - "Verbindung hinzufügen" klicken
+
+2. **Verbindungen verwalten:**
+   - **Drag & Drop:** Karten anklicken und ziehen, um Reihenfolge zu ändern
+   - **Aktualisieren:** Aktuellste Daten abrufen
+   - **Auf ÖBB öffnen:** Verbindung auf ÖBB-Website anzeigen
+   - **Entfernen:** Verbindung vom Dashboard löschen
+
+3. **Informationen:**
+   - Zeigt Abfahrts- und Ankunftszeiten
+   - Zeigt Gleise bei Zügen und S-Bahnen
+   - Zeigt Richtung bei allen Verkehrsmitteln
+   - Zeigt Verspätungen in Echtzeit
+   - Zeigt alle Umstiege mit Details
+
+## Entwicklung ohne Docker
+
+Für lokale Entwicklung:
+
+```bash
+# Dependencies installieren
+npm install
+
+# Server starten
+npm start
+```
+
+Das Dashboard ist dann erreichbar unter: http://localhost:3000
+
+## Technologie
+
+- **Frontend:** HTML, CSS, JavaScript
+- **Backend:** Node.js, Express
+- **API:** hafas-client (ÖBB HAFAS API)
+- **Container:** Docker, Docker Compose
+
+## Port
+
+- Standard-Port: **3000**
+- Ändern in `docker-compose.yml` unter `ports: - "3000:3000"`
+
+## Hinweis
+
+Dies ist ein inoffizielles Tool und nutzt die öffentliche ÖBB HAFAS API.

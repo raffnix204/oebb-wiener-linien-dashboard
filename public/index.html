@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ÖBB Verbindungen Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ÖBB & Wiener Linien Dashboard</h1>
+            <p class="subtitle">Übersicht Ihrer wichtigsten Verbindungen mit Bahn, U-Bahn, Straßenbahn und Bus in Echtzeit</p>
+        </header>
+
+        <div class="add-connection">
+            <h2>Neue Verbindung hinzufügen</h2>
+            <div class="form-grid">
+                <div class="form-group autocomplete-wrapper">
+                    <label for="fromStation">Von (Station)</label>
+                    <input
+                        type="text"
+                        id="fromStation"
+                        placeholder="Station suchen..."
+                        autocomplete="off"
+                        oninput="searchStations('from')"
+                        onfocus="searchStations('from')"
+                    />
+                    <div id="fromStationResults" class="autocomplete-results"></div>
+                </div>
+                <div class="form-group autocomplete-wrapper">
+                    <label for="toStation">Nach (Station)</label>
+                    <input
+                        type="text"
+                        id="toStation"
+                        placeholder="Station suchen..."
+                        autocomplete="off"
+                        oninput="searchStations('to')"
+                        onfocus="searchStations('to')"
+                    />
+                    <div id="toStationResults" class="autocomplete-results"></div>
+                </div>
+                <button class="btn btn-primary" onclick="addConnection()">Hinzufügen</button>
+            </div>
+        </div>
+
+        <div id="connectionsContainer" class="connections-grid">
+            <div class="empty-state">
+                <h3>Keine Verbindungen vorhanden</h3>
+                <p>Fügen Sie Ihre erste Verbindung hinzu, um live Fahrpläne zu sehen.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
